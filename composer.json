@@ -1,0 +1,46 @@
+{
+    "name": "nowyouwerkn/weblog",
+    "description": "Content management system. Creating great technology for creators.",
+    "keywords": [
+        "werkn",
+        "laravel",
+    ],
+    "type": "library",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Jorge Peña Lama",
+            "email": "jorge.pena@werkn.mx",
+            "homepage" : "https://werkn.mx",
+            "role": "Project Manager"
+        },
+        {
+            "name": "Itzell Elizondo",
+            "email": "itzell@werkn.mx",
+            "homepage" : "https://werkn.mx",
+            "role": "Designer"
+        }
+    ],
+    "homepage": "https://github.com/nowyouwerkn/weblog",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require":{
+        "php": "^8.0",
+        "laravel/framework": "^8.12",
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Nowyouwerkn\\WeBlog\\": "src"
+        }
+    },
+    "extra":{
+        "laravel":{
+            "providers": [
+                "Nowyouwerkn\\WeBlog\\WeBlogServiceProvider"
+            ]
+        }
+    }
+}
