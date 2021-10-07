@@ -3,7 +3,7 @@
     "description": "Content management system. Creating great technology for creators.",
     "keywords": [
         "werkn",
-        "laravel",
+        "laravel"
     ],
     "type": "library",
     "version": "1.0.0",
