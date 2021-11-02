@@ -16,7 +16,10 @@ class WeBlogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->make('Nowyouwerkn\WeBlog\Controllers\CategoryController');
+        $this->app->make('Nowyouwerkn\WeBlog\Controllers\FrontController');
+        $this->app->make('Nowyouwerkn\WeBlog\Controllers\PostController');
+        $this->app->make('Nowyouwerkn\WeBlog\Controllers\PostCommentController');
     }
 
     /**
@@ -33,28 +36,14 @@ class WeBlogServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'weblog');
 
-        // Publica los archivos de traducción del sistema
+        // Primera ruta es de donde viene el recurso a publicar y la segunda ruta en que parte se instalará.
         $this->publishes([
-            __DIR__.'/resources/lang' => resource_path('lang/'),
-        ], 'translations');
-
-        // Publicar Assets de Estilos
-        $this->publishes([
-            __DIR__.'/assets' => public_path(''),
-        ], 'styles');
-
-        // Publicar archivos de config
-        $this->publishes([
-            __DIR__.'/config' => config_path(''),
-        ], 'config_files');
+            __DIR__.'/resources/views/front/werkn-backbone-bootstrap' => resource_path('views/front/theme/'),
+        ], 'werkn-theme');
 
         // Publicar archivos de base de datos
         $this->publishes([
             __DIR__.'/database/migrations' => database_path('migrations/'),
         ], 'migration_files');
-
-        $this->publishes([
-            __DIR__.'/database/seeders' => database_path('seeders/'),
-        ], 'seeder_files');
     }
 }

@@ -27,7 +27,9 @@
     "prefer-stable": true,
     "require":{
         "php": "^8.0",
-        "laravel/framework": "^8.12"
+        "laravel/framework": "^8.12",
+        "mews/purifier": "^3.3",
+        "nowyouwerkn/werknhub": "dev-master"
     },
     "require-dev": {
     },
