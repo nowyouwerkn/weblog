@@ -2,11 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // Back-End Views
-Route::group(['prefix' => 'admin/blog','middleware' => 'auth'], function(){
-    //Dashboard
-    /*
-    Route::get('/', 'Nowyouwerkn\WeBlog\Controllers\DashboardController@index')->name('dashboard'); //
-   	*/
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'can:admin_access']], function(){
     //Catalog
     Route::resource('posts', Nowyouwerkn\WeBlog\Controllers\ProductController::class); //
     Route::resource('categories', Nowyouwerkn\WeBlog\Controllers\CategoryController::class); //
@@ -15,22 +11,7 @@ Route::group(['prefix' => 'admin/blog','middleware' => 'auth'], function(){
         'uses' => 'Nowyouwerkn\WeBlog\Controllers\ReviewController@approve',
         'as' => 'review.approve',
     ]);
-
-    // Búsqueda
-    /*
-    Route::get('/busqueda-general', [
-        'uses' => 'Nowyouwerkn\WeBlog\Controllers\DashboardController@generalSearch',
-        'as' => 'back.search.query',
-    ]);
-    */
 });
-
-/*
-*
-*
-*
-*
-*/
 
 // RSS Feed
 Route::get('/rss-feed', [
@@ -40,8 +21,6 @@ Route::get('/rss-feed', [
 
 /* 
  * FRONT VIEWS
- * 
- *
  *
 */
 Route::get('/blog', [

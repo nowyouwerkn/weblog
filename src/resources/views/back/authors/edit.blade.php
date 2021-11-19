@@ -1,4 +1,4 @@
-@extends('back.layouts.app')
+@extends('weblog::back.layouts.main')
 
 @section('stylesheets')
 
