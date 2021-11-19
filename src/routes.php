@@ -4,13 +4,8 @@ use Illuminate\Support\Facades\Route;
 // Back-End Views
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'can:admin_access']], function(){
     //Catalog
-    Route::resource('posts', Nowyouwerkn\WeBlog\Controllers\ProductController::class); //
-    Route::resource('categories', Nowyouwerkn\WeBlog\Controllers\CategoryController::class); //
-
-    Route::get('/reviews/aprobar/{id}',[
-        'uses' => 'Nowyouwerkn\WeBlog\Controllers\ReviewController@approve',
-        'as' => 'review.approve',
-    ]);
+    Route::resource('posts', Nowyouwerkn\WeBlog\Controllers\PostController::class);
+    Route::resource('categories', Nowyouwerkn\WeBlog\Controllers\CategoryController::class);
 });
 
 // RSS Feed
