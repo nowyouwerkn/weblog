@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 // Back-End Views
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'can:admin_access']], function(){
     //Catalog
-    Route::resource('posts', Nowyouwerkn\WeBlog\Controllers\PostController::class)->name('wb-posts');
-    Route::resource('categories', Nowyouwerkn\WeBlog\Controllers\CategoryController::class)->name('wb-categories');
+    Route::resource('posts', Nowyouwerkn\WeBlog\Controllers\PostController::class)->name('wb-posts.');
+    Route::resource('categories', Nowyouwerkn\WeBlog\Controllers\CategoryController::class)->name('wb-categories.');
 });
 
 // RSS Feed
