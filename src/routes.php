@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 // Back-End Views
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'can:admin_access']], function(){
     //Catalog
-    Route::resource('posts', Nowyouwerkn\WeBlog\Controllers\PostController::class);
-    Route::resource('categories', Nowyouwerkn\WeBlog\Controllers\CategoryController::class);
+    Route::resource('posts', Nowyouwerkn\WeBlog\Controllers\PostController::class)->name('wb-posts');
+    Route::resource('categories', Nowyouwerkn\WeBlog\Controllers\CategoryController::class)->name('wb-categories');
 });
 
 // RSS Feed
@@ -20,22 +20,22 @@ Route::get('/rss-feed', [
 */
 Route::get('/blog', [
 	'uses' => 'Nowyouwerkn\WeBlog\Controllers\FrontController@index',
-	'as' => 'blog.index',
+	'as' => 'wb-blog.index',
 ]);
 
 Route::get('/blog/{slug}', [
 	'uses' => 'Nowyouwerkn\WeBlog\Controllers\FrontController@detail',
-	'as' => 'blog.detail',
+	'as' => 'wb-blog.detail',
 ])->where('slug', '[\w\d\-\_]+');
 
 Route::get('/blog/archive/{autor}', [
 	'uses' => 'Nowyouwerkn\WeBlog\Controllers\FrontController@authorList',
-	'as' => 'blog.author.list',
+	'as' => 'wb-blog.author.list',
 ])->where('slug', '[\w\d\-\_]+');
 
 
 /* Search Functions */
 Route::get('/busqueda-general', [
     'uses' => 'Nowyouwerkn\WeBlog\Controllers\SearchController@query',
-    'as' => 'search.query',
+    'as' => 'wb-blog-search.query',
 ]);
