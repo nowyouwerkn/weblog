@@ -5,11 +5,13 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
+use Nowyouwerkn\WeBlog\Models\PostComment;
+
 class PostCommentController extends Controller
 {
     public function index()
     {
-        $variable = Modelo::where('parent_id', 0)->orWhere('parent_id', NULL)->paginate(12);
+        $variable = PostComment::where('parent_id', 0)->orWhere('parent_id', NULL)->paginate(12);
 
         return view('back.variable.index')->with('variable', $variable);
     }
@@ -59,7 +61,7 @@ class PostCommentController extends Controller
 
     public function destroy($id)
     {
-        $variable = Modelo::find($id);
+        $variable = PostComment::find($id);
         $variable->delete();
 
         Session::flash('success', 'Se eliminó la información de manera exitosa.');

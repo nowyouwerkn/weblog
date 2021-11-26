@@ -8,7 +8,7 @@ use Session;
 use Auth;
 
 // Modelos
-use Nowyouwerkn\WeCommerce\Models\Post;
+use Nowyouwerkn\WeBlog\Models\Post;
 
 
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $variable = Modelo::where('parent_id', 0)->orWhere('parent_id', NULL)->paginate(12);
+        $variable = Post::where('parent_id', 0)->orWhere('parent_id', NULL)->paginate(12);
 
         return view('back.variable.index')->with('variable', $variable);
     }
@@ -67,7 +67,7 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        $variable = Modelo::find($id);
+        $variable = Post::find($id);
         $variable->delete();
 
         Session::flash('success', 'Se eliminó la información de manera exitosa.');
