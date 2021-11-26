@@ -38,7 +38,7 @@ class WeBlogServiceProvider extends ServiceProvider
 
         // Primera ruta es de donde viene el recurso a publicar y la segunda ruta en que parte se instalará.
         $this->publishes([
-            __DIR__.'/resources/views/front/werkn-backbone-bootstrap' => resource_path('views/front/theme/'),
+            __DIR__.'/resources/views/front/werkn-backbone-bootstrap' => resource_path('views/front/theme/werkn-backbone-bootstrap/'),
         ], 'werkn-theme');
 
         // Publicar archivos de base de datos

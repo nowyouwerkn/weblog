@@ -17,9 +17,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        $variable = Post::where('parent_id', 0)->orWhere('parent_id', NULL)->paginate(12);
+        $posts = Post::paginate(12);
 
-        return view('back.variable.index')->with('variable', $variable);
+        return view('weblog::back.posts.index')->with('posts', $posts);
     }
 
     public function create()
