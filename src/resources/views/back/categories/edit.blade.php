@@ -1,4 +1,4 @@
-@extends('weblog::back.layouts.main')
+@extends('werknhub::back.layouts.main')
 
 @section('stylesheets')
 

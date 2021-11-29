@@ -1,4 +1,4 @@
-@extends('weblog::back.layouts.main')
+@extends('werknhub::back.layouts.main')
 
 @section('stylesheets')
 
@@ -20,7 +20,7 @@
 
 <div class="row">
     <div class="col">
-        @include('back.layouts.partials._mensajes')
+        @include('werknhub::back.layouts.partials._messages')
     </div>
 </div>
 

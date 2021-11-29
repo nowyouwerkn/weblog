@@ -1,4 +1,4 @@
-@extends('weblog::back.layouts.main')
+@extends('werknhub::back.layouts.main')
 
 @section('stylesheets')
 
@@ -19,13 +19,13 @@
 
 <div class="row">
     <div class="col">
-        @include('back.layouts.partials._mensajes')
+        @include('werknhub::back.layouts.partials._messages')
     </div>
 </div>
 
 <div class="row mb-4">
     <div class="col col-md-12">
-        <a href="{{ route('blog.create') }}" class="btn btn-rounded btn-success"><i class="fa fa-plus-circle m-r-5"></i> Nueva Publicación</a>
+        <a href="{{ route('posts.create') }}" class="btn btn-rounded btn-success"><i class="fa fa-plus-circle m-r-5"></i> Nueva Publicación</a>
     </div>
 </div>
 
@@ -36,7 +36,7 @@
                 <h3>Publicaciones</h3>
                 <hr>
 
-                @if($publicaciones->count() == NULL || $publicaciones->count() == 0)
+                @if($posts->count() == NULL || $posts->count() == 0)
                     <p>No hay publicaciones. ¡Comienza a crear una!</p>
                 @else 
                 <div class="table-responsive">
@@ -52,7 +52,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($publicaciones as $pub)
+                            @foreach($posts as $pub)
                             <tr>
                                 <td>{{ $pub->id }}</td>
                                 <td>{{ $pub->title }}</td>
@@ -75,59 +75,7 @@
                     </table>
                 </div>
 
-                {{ $publicaciones->links() }}
-                @endif
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h3>Categorías</h3>
-                <hr>
-
-                <form method="POST" action="{{ route('categorias.store') }}">
-                    {{ csrf_field() }}
-                    <div class="input-group">
-                        <input class="form-control" name="name" placeholder="Nueva Categoria..." type="text">
-                        <div class="input-group-addon" style="padding: 0px; background-color: transparent;"><button class="btn btn-success">Guardar</button></div>
-                    </div>
-                </form>
-
-                @if($categorias->count() == NULL || $categorias->count() == 0)
-                    <p class="mt-4 mb-0">No hay categorias. ¡Comienza a crear una!</p>
-                @else
-                    <ul class="list-group mt-4 mb-0">
-                        @foreach($categorias as $cat)
-                        <li class="list-group-item">{{ $cat->name }}</li>
-                        @endforeach
-                    </ul>               
-                @endif
-            </div>
-        </div>
-
-        <div class="card mb-3">
-            <div class="card-body">
-                <h3>Etiquetas</h3>
-                <hr>
-
-                <form method="POST" action="{{ route('etiquetas.store') }}">
-                    {{ csrf_field() }}
-                    <div class="input-group">
-                        <input class="form-control" name="name" placeholder="Nueva Etiqueta..." type="text">
-                        <div class="input-group-addon" style="padding: 0px; background-color: transparent;"><button class="btn btn-success">Guardar</button></div>
-                    </div>
-                </form>
-
-                @if($etiquetas->count() == NULL || $etiquetas->count() == 0)
-                    <p class="mt-4 mb-0">No hay etiquetas. ¡Comienza a crear una!</p>
-                @else
-                    <ul class="list-group mt-4 mb-0">
-                        @foreach($etiquetas as $tg)
-                        <li class="list-group-item">{{ $tg->name }}</li>
-                        @endforeach
-                    </ul>               
+                {{ $posts->links() }}
                 @endif
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // Back-End Views
-Route::group(['prefix' => 'admin', 'middleware' => ['web', 'can:admin_access']], function(){
+Route::group(['prefix' => 'admin/blog', 'middleware' => ['web', 'can:admin_access']], function(){
     //Catalog
     Route::resource('posts', Nowyouwerkn\WeBlog\Controllers\PostController::class);
     Route::resource('categories', Nowyouwerkn\WeBlog\Controllers\CategoryController::class);
